@@ -1,0 +1,22 @@
+<% provide(:title, "Restaurant log in") %>
+<h1>Restaurant log in</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_tag(restaurant_login_path, method: :post) do %>
+
+      <%= label_tag :name, "Name: " %>
+      <%= text_field_tag :name, nil, class: 'form-control' %>
+
+      <%= label_tag :postal_code, "Postal code: " %>
+      <%= text_field_tag :postal_code, nil, class: 'form-control' %>
+
+      <%= label_tag :password, "Password: " %>
+      <%= password_field_tag :password, nil, class: 'form-control' %>
+
+      <%= submit_tag "Log in", class: "btn btn-success" %>
+    <% end %>
+
+    <p class="text-success">New restaurant? <%= link_to "Sign up as a restaurant.", restaurant_signup_path %></p>
+  </div>
+</div>

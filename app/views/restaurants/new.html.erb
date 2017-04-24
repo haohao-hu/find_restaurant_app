@@ -1,0 +1,172 @@
+<% provide(:title, 'Restaurant Sign up') %>
+<h1>Sign up as a restaurant</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@restaurant) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
+
+      <%= f.label :neighborhood %>
+      <%= f.text_field :neighborhood, class: 'form-control' %>
+
+      <%= f.label :address %>
+      <%= f.text_field :address, class: 'form-control' %>
+
+      <%= f.label :postal_code %>
+      <%= f.text_field :postal_code, class: 'form-control' %>
+
+      <%= f.label :latitude %>
+      <%= f.text_field :latitude, class: 'form-control' %>
+
+      <%= f.label :longitude %>
+      <%= f.text_field :longitude, class: 'form-control' %>
+
+      <div class="row">   <div class="col-md-6"><%= f.label "alcohol:" %></div><div class="col-md-3">
+      <%= f.select(:alcohol,[['',nil],['none','none'],['full bar','full bar'],['beer and wine','beer and wine']], class: 'form-control') %></div></div>
+
+      <h2><b>Ambience:</b></h2>
+      <div class="row">
+<div class="col-md-2"><%= f.label "romantic" %>
+      <%= f.select(:ambience_romantic,[[nil,nil],[true,true],[false,false]], class: 'form-control') %></div>
+<div class="col-md-2"><%= f.label "intimate" %>
+      <%= f.select(:ambience_intimate,[[nil,nil],[true,true],[false,false]], class: 'form-control') %></div>
+<div class="col-md-2"><%= f.label "classy" %>
+      <%= f.select(:ambience_classy,[[nil,nil],[true,true],[false,false]], class: 'form-control') %></div>
+<div class="col-md-2"><%= f.label "hipster" %>
+      <%= f.select(:ambience_hipster,[[nil,nil],[true,true],[false,false]], class: 'form-control') %></div>
+<div class="col-md-2"><%= f.label "touristy" %>
+      <%= f.select(:ambience_touristy,[[nil,nil],[true,true],[false,false]], class: 'form-control') %></div>
+<div class="col-md-2"><%= f.label "trendy" %>
+      <%= f.select(:ambience_trendy,[[nil,nil],[true,true],[false,false]], class: 'form-control') %></div>
+<div class="col-md-2"><%= f.label "upscale" %>
+      <%= f.select(:ambience_upscale,[[nil,nil],[true,true],[false,false]], class: 'form-control') %></div>
+<div class="col-md-2"><%= f.label "casual" %>
+      <%= f.select(:ambience_casual,[[nil,nil],[true,true],[false,false]], class: 'form-control') %></div>
+</div><br />
+  
+<h2><b>Business Parking:<b></h2>
+<div class="row">
+            <div class="col-md-2"><%= f.label "garage" %>
+      <%= f.select(:businessParking_garage,[[nil,nil],[true,true],[false,false]], class: 'form-control') %></div>
+           <div class="col-md-2"> <%= f.label "street" %>
+      <%= f.select(:businessParking_street,[[nil,nil],[true,true],[false,false]], class: 'form-control') %></div>
+           <div class="col-md-2"><%= f.label "validated" %>
+      <%= f.select(:businessParking_validated,[[nil,nil],[true,true],[false,false]], class: 'form-control') %></div>
+       <div class="col-md-2"><%= f.label "lot" %>
+      <%= f.select(:businessParking_lot,[[nil,nil],[true,true],[false,false]], class: 'form-control') %></div>
+       <div class="col-md-2"><%= f.label "valet" %>
+      <%= f.select(:businessParking_valet,[[nil,nil],[true,true],[false,false]], class: 'form-control') %></div>
+</div><br />
+
+      
+    <h2><b>Good for meal:<b></h2>
+<div class="row">
+            <div class="col-md-2"><%= f.label "dessert" %><%= f.select(:goodForMeal_dessert,[[nil,nil],[true,true],[false,false]], class: 'form-control') %>
+            </div>
+           <div class="col-md-2"> <%= f.label "latenight" %><%= f.select(:goodForMeal_latenight,[[nil,nil],[true,true],[false,false]], class: 'form-control') %>
+      </div>
+           <div class="col-md-2"> <%= f.label "lunch" %><%= f.select(:goodForMeal_lunch,[[nil,nil],[true,true],[false,false]], class: 'form-control') %>
+      </div>
+       <div class="col-md-2"> <%= f.label "dinner" %><%= f.select(:goodForMeal_dinner,[[nil,nil],[true,true],[false,false]], class: 'form-control') %>
+      </div>
+       <div class="col-md-2"> <%= f.label "breakfast" %><%= f.select(:goodForMeal_breakfast,[[nil,nil],[true,true],[false,false]], class: 'form-control') %>
+     </div>
+      <div class="col-md-2"> <%= f.label "brunch" %><%= f.select(:goodForMeal_brunch,[[nil,nil],[true,true],[false,false]], class: 'form-control') %>
+     </div>
+</div><br />  
+      <div class="row">   <div class="col-md-6"> <%= f.label "bike parking:" %></div>
+     <div class="col-md-3"> <%= f.select(:bikeParking,[[nil,nil],[true,true],[false,false]], class: 'form-control') %></div></div>
+
+      <div class="row">   <div class="col-md-6"><%= f.label " accepts credit cards:" %></div>
+     <div class="col-md-3"> <%= f.select(:businessAcceptsCreditCards,[[nil,nil],[true,true],[false,false]], class: 'form-control') %></div></div>
+   <div class="row">   <div class="col-md-6"><%= f.label "caters:" %></div>
+     <div class="col-md-3">  <%= f.select(:caters,[[nil,nil],[true,true],[false,false]], class: 'form-control') %></div></div>
+      <div class="row">   <div class="col-md-6"><%= f.label "good for kids:" %></div>
+     <div class="col-md-3"> <%= f.select(:goodForKids,[[nil,nil],[true,true],[false,false]], class: 'form-control') %></div></div>
+ <div class="row">   <div class="col-md-6"> <%= f.label "has TV:" %></div>
+     <div class="col-md-3"> <%= f.select(:hasTV,[[nil,nil],[true,true],[false,false]], class: 'form-control') %></div></div>
+
+      <div class="row">   <div class="col-md-6"><%= f.label "open 24 hours:" %></div>
+     <div class="col-md-3"> <%= f.select(:open24Hours,[[nil,nil],[true,true],[false,false]], class: 'form-control') %></div></div>
+   <div class="row">   <div class="col-md-6"><%= f.label "outdoor seating:" %></div>
+     <div class="col-md-3"><%= f.select(:outdoorSeating,[[nil,nil],[true,true],[false,false]], class: 'form-control') %></div></div>
+      <div class="row">   <div class="col-md-6"><%= f.label "restaurant has delivery:" %></div>
+     <div class="col-md-3"><%= f.select(:restaurantsDelivery,[[nil,nil],[true,true],[false,false]], class: 'form-control') %></div></div>     
+      <div class="row">   <div class="col-md-6"><%= f.label "noise level:" %></div><div class="col-md-3">
+      <%= f.select(:noiseLevel,[['',nil],['quiet','quiet'],['average','average'],['loud','loud'],['very loud','very loud']], class: 'form-control') %></div></div>
+
+      <div class="row"><div class="col-md-6"><%= f.label "restaurant's attire:" %></div><div class="col-md-3">
+      <%= f.select(:restaurantsAttire,[['',nil],['casual','casual'],['dressy','dressy']], class: 'form-control') %></div></div>
+
+     <div class="row">   <div class="col-md-6"> <%= f.label "restaurant's good for groups:" %></div>
+     <div class="col-md-3"><%= f.select(:restaurantsGoodForGroups,[[nil,nil],[true,true],[false,false]], class: 'form-control') %></div></div>
+     <div class="row">   <div class="col-md-6"><%= f.label "restaurant's reservations:" %></div>
+     <div class="col-md-3"> <%= f.select(:restaurantsReservations,[[nil,nil],[true,true],[false,false]], class: 'form-control') %></div></div>
+     <div class="row">   <div class="col-md-6"><%= f.label "restaurant's table service:" %></div>
+     <div class="col-md-3"> <%= f.select(:restaurantsTableService,[[nil,nil],[true,true],[false,false]], class: 'form-control') %></div></div>
+     <div class="row">   <div class="col-md-6"><%= f.label "restaurant's takeout:" %></div>
+     <div class="col-md-3"> <%= f.select(:restaurantsTakeOut,[[nil,nil],[true,true],[false,false]], class: 'form-control') %></div></div>   
+
+      <div class="row">   <div class="col-md-6"><%= f.label "restaurant's price range:" %></div> <div class="col-md-3">
+      <%= f.select(:restaurantsPriceRange2,[[nil,nil],[1,1],[2,2],[3,3],[4,4]], class: 'form-control') %></div></div>
+<div class="row">   <div class="col-md-6"><%= f.label "wheelchair accessible:" %></div>
+     <div class="col-md-3"><%= f.select(:wheelchairAccessible,[[nil,nil],[true,true],[false,false]], class: 'form-control') %></div></div>  
+      <div class="row">   <div class="col-md-6"><%= f.label "WiFi:" %></div><div class="col-md-3">
+      <%= f.select(:wiFi,[['',nil],['no','no'],['free','free']], class: 'form-control') %> </div></div>
+     <%= f.label :categories %>
+      <%= f.text_field :categories, class: 'form-control' %>
+      <div class="row">
+      <div class="col-md-6"><%= f.label "opening hours on Monday from:" %>
+      <%= f.time_select  :hours_Monday, {:minute_step => 5}, class: 'form-control' %></div>
+      <div class="col-md-6"><%= f.label "to:" %>
+      <%= f.time_select :hours_Monday_end,{:minute_step => 5}, class: 'form-control' %></div>
+      </div>
+      <div class="row">
+      <div class="col-md-6"><%= f.label "opening hours on Tuesday from:" %>
+      <%= f.time_select :hours_Tuesday,{:minute_step => 5}, class: 'form-control' %></div>
+      <div class="col-md-6"><%= f.label "to:" %>
+      <%= f.time_select :hours_Tuesday_end,{:minute_step => 5}, class: 'form-control' %></div>
+      </div>
+      <div class="row">
+      <div class="col-md-6"><%= f.label "opening hours on Wednesday from:" %>
+      <%= f.time_select :hours_Wednesday,{:minute_step => 5}, class: 'form-control' %></div>
+      <div class="col-md-6"><%= f.label "to:" %>
+      <%= f.time_select :hours_Wednesday_end,{:minute_step => 5}, class: 'form-control' %></div>
+      </div>
+      <div class="row">
+      <div class="col-md-6"><%= f.label "opening hours on Thursday from:" %>
+      <%= f.time_select :hours_Thursday,{:minute_step => 5}, class: 'form-control' %></div>
+      <div class="col-md-6"><%= f.label "to:" %>
+      <%= f.time_select :hours_Thursday_end,{:minute_step => 5}, class: 'form-control' %></div>
+      </div>
+      <div class="row">
+      <div class="col-md-6"><%= f.label "opening hours on Friday from:" %>
+      <%= f.time_select :hours_Friday,{:minute_step => 5}, class: 'form-control' %></div>
+      <div class="col-md-6"><%= f.label "to:" %>
+      <%= f.time_select :hours_Friday_end,{:minute_step => 5}, class: 'form-control' %></div>
+      </div>
+      <div class="row">
+      <div class="col-md-6"><%= f.label "opening hours on Saturday from:" %>
+      <%= f.time_select :hours_Saturday,{:minute_step => 5}, class: 'form-control' %></div>
+      <div class="col-md-6"><%= f.label "to:" %>
+      <%= f.time_select :hours_Saturday_end,{:minute_step => 5}, class: 'form-control' %></div>
+      </div>
+       <div class="row">
+      <div class="col-md-6"><%= f.label "opening hours on Sunday from:" %>
+      <%= f.time_select :hours_Sunday,{:minute_step => 5}, class: 'form-control' %></div>
+      <div class="col-md-6"><%= f.label "to:" %>
+      <%= f.time_select :hours_Sunday_end,{:minute_step => 5}, class: 'form-control' %></div>
+      </div>
+
+      <%= f.label :password %>
+      <%= f.password_field :password, class: 'form-control' %>
+
+      <%= f.label :password_confirmation, "Confirmation" %>
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+      <%= f.submit "Create my account", class: "btn btn-success" %>
+    <% end %>
+  </div>
+</div>

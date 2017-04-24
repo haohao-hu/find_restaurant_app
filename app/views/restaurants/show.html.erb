@@ -1,0 +1,81 @@
+<% provide(:title, @restaurant.name) %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="restaurant_info">
+<h1><%= @restaurant.name %></h1>
+
+<br />neighborhood: <%= @restaurant.neighborhood %>
+<br />address: <%= @restaurant.address %>
+<br />postal code: <%= @restaurant.postal_code %>
+<br />latitude: <%= @restaurant.latitude %>
+<br />longitude: <%= @restaurant.longitude %>
+<br />stars: <%= @restaurant.stars %>
+<br />review count: <%= @restaurant.review_count %>
+<br />is <%= @restaurant.is_open %> now
+<br />alcohol: <%= @restaurant.alcohol %>
+<br /><table class="table-striped" width="100%" border="1"><caption><h3>ambience</h3></caption>
+<tr><th>romantic</th><th>intimate</th><th>classy</th><th>hipster</th></tr>
+<tr><td><%= @restaurant.ambience_romantic %></td>
+<td><%= @restaurant.ambience_intimate %></td>
+<td><%= @restaurant.ambience_classy %></td>
+<td><%= @restaurant.ambience_hipster %></td>
+<tr><th>touristy</th><th>trendy</th><th>upscale</th><th>casual</th></tr>
+<tr><td><%= @restaurant.ambience_touristy %></td>
+<td><%= @restaurant.ambience_trendy %></td>
+<td><%= @restaurant.ambience_upscale %></td>
+<td><%= @restaurant.ambience_casual %></td></tr></table>
+<br />bike parking: <%= @restaurant.bikeParking %>
+<br />business accepts credit cards: <%= @restaurant.businessAcceptsCreditCards %>
+<br /><table class="table-striped" width="100%" border="1"><caption><h3>business parking</h3></caption>
+<tr><th>garage</th><th>street</th><th>validated</th><th>lot</th><th>valet</th></tr>
+<td><%= @restaurant.businessParking_garage %></td>
+<td><%= @restaurant.businessParking_street %></td>
+<td><%= @restaurant.businessParking_validated %></td>
+<td><%= @restaurant.businessParking_lot %></td>
+<td><%= @restaurant.businessParking_valet %></td></tr></table>
+<br />caters: <%= @restaurant.caters %>
+
+<br />good for kids: <%= @restaurant.goodForKids %>
+<br /><table class="table-striped" width="100%" border="1"><caption><h3>good for meal</h3></caption>
+<tr><th>dessert</th><th>latenight</th><th>lunch</th><th>dinner</th><th>breakfast</th><th>brunch</th></tr>
+<tr><td><%= @restaurant.goodForMeal_dessert %></td>
+<td><%= @restaurant.goodForMeal_latenight %></td>
+<td><%= @restaurant.goodForMeal_lunch %></td>
+<td><%= @restaurant.goodForMeal_dinner %></td>
+<td><%= @restaurant.goodForMeal_breakfast %></td>
+<td><%= @restaurant.goodForMeal_brunch %></td></tr></table>
+<br />has TV: <%= @restaurant.hasTV %>
+<br />noise level: <%= @restaurant.noiseLevel %>
+<br />open 24 hours: <%= @restaurant.open24Hours %>
+<br />outdoor seating: <%= @restaurant.outdoorSeating %>
+<br />restaurant's attire: <%= @restaurant.restaurantsAttire %>
+<br />restaurant's delivery: <%= @restaurant.restaurantsDelivery %>
+<br />restaurant's good for groups: <%= @restaurant.restaurantsGoodForGroups %>
+<br />restaurant's price range (1-4): <%= @restaurant.restaurantsPriceRange2 %>
+<br />restaurant's reservations: <%= @restaurant.restaurantsReservations %>
+<br />restaurant's table service: <%= @restaurant.restaurantsTableService %>
+<br />restaurant's takeout: <%= @restaurant.restaurantsTakeOut %>
+<br />wheel chair accessible: <%= @restaurant.wheelchairAccessible %>
+<br />WiFi: <%= @restaurant.wiFi %>
+<br />categories: <%= @restaurant.categories %>
+<br /><table class="table-striped" width="100%" border="1"><caption><h3>opening hours</h3></caption><tr><th>Day</th><th>From</th><th>to</th></tr><tr><td>Monday</td><td><%= @restaurant.hours_Monday.hour if @restaurant.hours_Monday!=nil%>:<%= @restaurant.hours_Monday.min if @restaurant.hours_Monday!=nil%></td> <td> <%= @restaurant.hours_Monday_end.hour if @restaurant.hours_Monday_end!=nil%>:<%= @restaurant.hours_Monday_end.min if @restaurant.hours_Monday_end!=nil%></td></tr>
+<tr><td>Tuesday</td><td> <%= @restaurant.hours_Tuesday.hour if @restaurant.hours_Tuesday!=nil%>:<%= @restaurant.hours_Tuesday.min if @restaurant.hours_Tuesday!=nil%></td><td> <%= @restaurant.hours_Tuesday_end.hour if @restaurant.hours_Tuesday_end!=nil%>:<%= @restaurant.hours_Tuesday_end.min if @restaurant.hours_Tuesday_end!=nil%></td></tr>
+<tr><td>Wednesday</td><td> <%= @restaurant.hours_Wednesday.hour if @restaurant.hours_Wednesday!=nil%>:<%= @restaurant.hours_Wednesday.min if @restaurant.hours_Wednesday!=nil%></td><td> <%= @restaurant.hours_Wednesday_end.hour if @restaurant.hours_Wednesday_end!=nil%>:<%= @restaurant.hours_Wednesday_end.min if @restaurant.hours_Wednesday_end!=nil%></td></tr>
+<tr><td>Thursday</td><td> <%= @restaurant.hours_Thursday.hour if @restaurant.hours_Thursday!=nil%>:<%= @restaurant.hours_Thursday.min if @restaurant.hours_Thursday!=nil%></td><td> <%= @restaurant.hours_Thursday_end.hour if @restaurant.hours_Thursday_end!=nil%>:<%= @restaurant.hours_Thursday_end.min if @restaurant.hours_Thursday_end!=nil%></td></tr>
+<tr><td>Friday</td><td> <%= @restaurant.hours_Friday.hour if @restaurant.hours_Friday!=nil%>:<%= @restaurant.hours_Friday.min if @restaurant.hours_Friday!=nil%></td><td> <%= @restaurant.hours_Friday_end.hour if @restaurant.hours_Friday_end!=nil%>:<%= @restaurant.hours_Friday_end.min if @restaurant.hours_Friday_end!=nil%></td></tr>
+<tr><td>Saturday</td><td> <%= @restaurant.hours_Saturday.hour if @restaurant.hours_Saturday!=nil%>:<%= @restaurant.hours_Saturday.min if @restaurant.hours_Saturday!=nil%></td><td> <%= @restaurant.hours_Saturday_end.hour if @restaurant.hours_Saturday_end!=nil%>:<%= @restaurant.hours_Saturday_end.min if @restaurant.hours_Saturday_end!=nil%></td></tr>
+<tr><td>Sunday</td><td> <%=  @restaurant.hours_Sunday.hour if @restaurant.hours_Sunday!=nil %>:<%= @restaurant.hours_Sunday.min if @restaurant.hours_Sunday!=nil%></td><td> <%= @restaurant.hours_Sunday_end.hour if @restaurant.hours_Sunday_end!=nil%>:<%= @restaurant.hours_Sunday_end.min if @restaurant.hours_Sunday_end!=nil%></td></tr>
+ </table>
+    </section>
+  </aside>
+    <div class="col-md-8">
+      <% if @restaurant.reviews.any? %>
+      <h3>Reviews (<%= @restaurant.reviews.count %>)</h3>
+      
+      <ol class="reviews">
+        <%= render @reviews %>
+      </ol>
+      <%= will_paginate @reviews %>
+    <% end %>
+  </div>
+</div>

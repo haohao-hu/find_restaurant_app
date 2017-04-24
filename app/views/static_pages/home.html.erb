@@ -1,0 +1,105 @@
+<% if logged_in? %>
+  <div class="row">
+    <aside class="col-md-4">
+      <section class="user_info">
+        <%= render 'shared/user_info' %>
+      </section>
+      <section class="review_form">
+        <%= render 'shared/review_form' %>
+      </section>
+    </aside>
+     <div class="col-md-8">
+      <h3>Review Feed</h3>
+      <%= render 'shared/feed' %>
+    </div>
+  </div>
+  <%elsif restaurant_logged_in? %>
+ <div class="row">
+    <aside class="col-md-4">
+     <section class="restaurant_info">
+        <%= render 'shared/restaurant_info' %>
+      </section>
+    </aside>
+     <div class="col-md-8">
+      <h3>Review Feed</h3>
+      <%= render 'shared/feed' %>
+    </div>
+  </div>
+<% else %>
+<div class="center page-header">
+  <div class="container">
+  <div class="jumbotron">
+<h1>
+  Welcome to Find Restaurant App!
+</h1>
+
+<div class="row">
+<div class="col-md-3"><%= link_to "Sign up as a user", signup_path, class:"btn btn-lg btn-success" %></div>
+<div class="col-md-3"><%= link_to "Sign up as a restaurant", restaurant_signup_path, class:"btn btn-lg btn-success" %></div>
+<div class="col-md-6"></div>
+</div>
+</div>
+
+
+<div class="container">
+  <h1>Most commented foods in North York</h1><br>
+  <div id="homeCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#homeCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#homeCarousel" data-slide-to="1"></li>
+      <li data-target="#homeCarousel" data-slide-to="2"></li>
+      <li data-target="#homeCarousel" data-slide-to="3"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+
+      <div class="item active">
+        <%=image_tag("sushi-599721_1280.jpg")%>
+        <div class="carousel-caption">
+          <h3>Sushi</h3>
+          <p>Most popular</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <%=image_tag("Rolls-Shrimp-Salmon-Sushi-Food-Rice-Maki-Fish-926122.jpg")%>
+        <div class="carousel-caption">
+          <h3>Rolls</h3>
+          <p>Second popular</p>
+        </div>
+      </div>
+    
+      <div class="item">
+       <%=image_tag("Steamed_rice_in_bowl_01.jpg")%>
+        <div class="carousel-caption">
+          <h3>Rice</h3>
+          <p>Third popular</p>
+        </div>
+      </div>
+
+      <div class="item">
+       <%=image_tag("1024px-Russian_Salad.jpg")%>
+        <div class="carousel-caption">
+          <h3>Salad</h3>
+          <p>Fourth popular</p>
+        </div>
+      </div>
+  
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#homeCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#homeCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+</div>
+</div>
+<% end %>

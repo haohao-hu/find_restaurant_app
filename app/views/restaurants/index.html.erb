@@ -1,0 +1,11 @@
+<% provide(:title, 'All restaurants') %>
+<h1>All restaurants</h1>
+<br />local time in North York: <%= @current_time_NY.strftime("%Y-%m-%d %H:%M:%S") %>
+<%= will_paginate %>
+
+<ul class="objects">
+
+    <%= render @restaurants %>
+</ul>
+
+<%= will_paginate %>

@@ -1,0 +1,10 @@
+<li id="review-<%= review.id %>">
+  <span class="user">User: <%= link_to review.user.name, review.user %></span>
+  <span class="restaurant">, restaurant: <%= link_to review.restaurant.name, review.restaurant %></span>
+  <span class="stars">, stars: <%= review.stars %></span>
+  <span class="date">, date: <%= review.created_at.strftime("%Y-%m-%d") %></span>
+  <span class="text"><%= review.text %></span>
+   <% if current_user?(review.user) %>
+      <%= link_to "delete", review, method: :delete, data: { confirm: "Are you sure?" } %>
+    <% end %>
+</li>

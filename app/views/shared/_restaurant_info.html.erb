@@ -1,0 +1,3 @@
+<h1><%= current_restaurant.name %></h1>
+<span><%= link_to "view my profile", current_restaurant %></span>
+<span><%= pluralize(current_restaurant.reviews.count, "review") %></span>

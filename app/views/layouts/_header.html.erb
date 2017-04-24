@@ -1,0 +1,84 @@
+<header class="navbar navbar-fixed-top navbar-default">	
+
+<nav>
+  <div class="container_fluid">
+      <div class="navbar-header">
+     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <%= link_to "find restaurant app", root_path, id: "logo" %>
+    </div>
+
+ 
+      <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav ">
+         <li><%= link_to "Home", root_path %></li>  
+             <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Opinion Target List
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="ot_list_OTE_YRRNorthYork_YRRCmodelBROWNW2V_1415combined_descending_1.html">Page 1</a></li>
+          <li><a href="ot_list_OTE_YRRNorthYork_YRRCmodelBROWNW2V_1415combined_descending_2.html">Page 2</a></li>
+          <li><a href="ot_list_OTE_YRRNorthYork_YRRCmodelBROWNW2V_1415combined_descending_3.html">Page 3</a></li>
+          <li><a href="ot_list_OTE_YRRNorthYork_YRRCmodelBROWNW2V_1415combined_descending_4.html">Page 4</a></li>
+          <li><a href="ot_list_OTE_YRRNorthYork_YRRCmodelBROWNW2V_1415combined_descending_5.html">Page 5</a></li>
+          <li><a href="ot_list_OTE_YRRNorthYork_YRRCmodelBROWNW2V_1415combined_descending_6.html">Page 6</a></li> 
+          <li><a href="ot_list_OTE_YRRNorthYork_YRRCmodelBROWNW2V_1415combined_descending_7.html">Page 7</a></li>
+          <li><a href="ot_list_OTE_YRRNorthYork_YRRCmodelBROWNW2V_1415combined_descending_8.html">Page 8</a></li>
+        </ul>
+      </li>       
+         
+         <% if logged_in? %>
+         <li><%= link_to "Restaurants", restaurants_path %></li>
+          <li><%= link_to "Users", users_path if current_user.admin? %></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              Account <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "Profile", current_user %></li>
+              <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+              <li class="divider"></li>
+              <li>
+                <%= link_to "Log out", logout_path, method: "delete" %>
+              </li>
+            </ul>
+          </li>
+        <% elsif restaurant_logged_in? %>
+          <li><%= link_to "Restaurants", restaurants_path %></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              Account <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "Profile", current_restaurant %></li>
+              <li><%= link_to "Settings", edit_restaurant_path(current_restaurant) %></li>
+              <li class="divider"></li>
+              <li>
+                <%= link_to "Log out", restaurant_logout_path, method: "delete" %>
+              </li>
+            </ul>
+          </li>
+        <% else %>
+        <li><%= link_to "Restaurants", restaurants_path %></li>
+          <li><%= link_to "User Log in", login_path %></li>
+                    <li><%= link_to "Restaurant Log in", restaurant_login_path %></li>
+        <% end %>
+          </ul>
+        <form class="navbar-form navbar-left" action="/restaurant_name_search" method="get" >
+         <div class="input-group">
+          <input type="text" class="form-control" placeholder="Enter name or category" name="name">
+          <div class="input-group-btn">
+           <button class="btn btn-success" type="submit">
+           <i class="glyphicon glyphicon-search"></i>
+           </button>
+          </div>
+         </div>
+       </form>
+      </div>
+
+</div>
+	</nav>
+	</header>

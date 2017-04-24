@@ -1,0 +1,7 @@
+   <li>
+      <%= link_to "#{restaurant.name}    , postal code: #{restaurant.postal_code}, address: #{restaurant.address}, is now #{restaurant.is_open}", restaurant %>
+  <% if logged_in?&&current_user.admin?  %>
+    | <%= link_to "delete", restaurant, method: :delete,
+                                    data: { confirm: "Are you sure?" } %>
+  <% end %>
+    </li>

@@ -1,0 +1,11 @@
+<% provide(:title, 'Restaurant Search Results') %>
+<h1>restaurants searched</h1>
+
+<%= will_paginate %>
+
+<ul class="objects">
+
+    <%= render @restaurants if @restaurants!=nil %>
+</ul>
+
+<%= will_paginate %>
