@@ -13,49 +13,51 @@
 <br />review count: <%= @restaurant.review_count %>
 <br />is <%= @restaurant.is_open %> now
 <br />alcohol: <%= @restaurant.alcohol %>
-<br /><table class="table-striped" width="100%" border="1"><caption><h3>ambience</h3></caption>
-<tr><th>romantic</th><th>intimate</th><th>classy</th><th>hipster</th></tr>
-<tr><td><%= @restaurant.ambience_romantic %></td>
-<td><%= @restaurant.ambience_intimate %></td>
-<td><%= @restaurant.ambience_classy %></td>
-<td><%= @restaurant.ambience_hipster %></td>
-<tr><th>touristy</th><th>trendy</th><th>upscale</th><th>casual</th></tr>
-<tr><td><%= @restaurant.ambience_touristy %></td>
-<td><%= @restaurant.ambience_trendy %></td>
-<td><%= @restaurant.ambience_upscale %></td>
-<td><%= @restaurant.ambience_casual %></td></tr></table>
-<br />bike parking: <%= @restaurant.bikeParking %>
-<br />business accepts credit cards: <%= @restaurant.businessAcceptsCreditCards %>
-<br /><table class="table-striped" width="100%" border="1"><caption><h3>business parking</h3></caption>
-<tr><th>garage</th><th>street</th><th>validated</th><th>lot</th><th>valet</th></tr>
-<td><%= @restaurant.businessParking_garage %></td>
-<td><%= @restaurant.businessParking_street %></td>
-<td><%= @restaurant.businessParking_validated %></td>
-<td><%= @restaurant.businessParking_lot %></td>
-<td><%= @restaurant.businessParking_valet %></td></tr></table>
-<br />caters: <%= @restaurant.caters %>
+<br />ambience: <%= "romantic, " if  @restaurant.ambience_romantic %>
+<%= "intimate, " if  @restaurant.ambience_intimate %>
+<%= "classy, " if  @restaurant.ambience_classy %>
+<%= "hipster, " if  @restaurant.ambience_hipster %>
+<%= "touristy, " if  @restaurant.ambience_touristy %>
+<%= "trendy, " if  @restaurant.ambience_trendy %>
+<%= "upscale, " if  @restaurant.ambience_upscale %>
+<%= "casual" if  @restaurant.ambience_casual %>
+<%= "unknown" if @restaurant.ambience_romantic==nil&&@restaurant.ambience_intimate==nil&&@restaurant.ambience_classy==nil&&@restaurant.ambience_hipster==nil&&@restaurant.ambience_touristy==nil&&@restaurant.ambience_trendy==nil&&@restaurant.ambience_upscale==nil&&@restaurant.ambience_casual==nil; %>
+<%= "none" if @restaurant.ambience_romantic==false&&@restaurant.ambience_intimate==false&&@restaurant.ambience_classy==false&&@restaurant.ambience_hipster==false&&@restaurant.ambience_touristy==false&&@restaurant.ambience_trendy==false&&@restaurant.ambience_upscale==false&&@restaurant.ambience_casual==false; %>
+<br /><%="offers bike parking" if @restaurant.bikeParking %><%="do not have bike parking" if @restaurant.bikeParking==false %>
+<br /><%= "business accepts credit cards" if @restaurant.businessAcceptsCreditCards %><%= "business do not accept credit cards" if @restaurant.businessAcceptsCreditCards==false %>
+<br />business parking: 
+<%="garage, " if @restaurant.businessParking_garage %>
+<%="street, " if @restaurant.businessParking_street %>
+<%= "street, " if @restaurant.businessParking_validated %>
+<%= "lot, " if @restaurant.businessParking_lot %>
+<%= "valet" if @restaurant.businessParking_valet %>
+<%= "none" if @restaurant.businessParking_garage==false&&@restaurant.businessParking_street==false&&@restaurant.businessParking_validated==false&&@restaurant.businessParking_lot==false&&@restaurant.businessParking_valet==false %>
+<%= "unknown" if @restaurant.businessParking_garage==nil&&@restaurant.businessParking_street==nil&&@restaurant.businessParking_validated==nil&&@restaurant.businessParking_lot==nil&&@restaurant.businessParking_valet==nil %>
+<br /> <%= "caters" if @restaurant.caters %><%= "do not cater" if @restaurant.caters==false %>
 
-<br />good for kids: <%= @restaurant.goodForKids %>
-<br /><table class="table-striped" width="100%" border="1"><caption><h3>good for meal</h3></caption>
-<tr><th>dessert</th><th>latenight</th><th>lunch</th><th>dinner</th><th>breakfast</th><th>brunch</th></tr>
-<tr><td><%= @restaurant.goodForMeal_dessert %></td>
-<td><%= @restaurant.goodForMeal_latenight %></td>
-<td><%= @restaurant.goodForMeal_lunch %></td>
-<td><%= @restaurant.goodForMeal_dinner %></td>
-<td><%= @restaurant.goodForMeal_breakfast %></td>
-<td><%= @restaurant.goodForMeal_brunch %></td></tr></table>
-<br />has TV: <%= @restaurant.hasTV %>
+<br /> <%= "good for kids" if @restaurant.goodForKids %>
+<%= "not good for kids" if @restaurant.goodForKids==false %>
+<br />good for meal:
+<%= "dessert, " if @restaurant.goodForMeal_dessert %>
+<%= "latenight, " if @restaurant.goodForMeal_latenight %>
+<%= "lunch, " if @restaurant.goodForMeal_lunch %>
+<%= "dinner, " if @restaurant.goodForMeal_dinner %>
+<%= "breakfast, " if @restaurant.goodForMeal_breakfast %>
+<%= "brunch" if @restaurant.goodForMeal_brunch %>
+<%= "none" if @restaurant.goodForMeal_dessert==false&&@restaurant.goodForMeal_latenight==false&&@restaurant.goodForMeal_lunch==false&&@restaurant.goodForMeal_dinner==false&&@restaurant.goodForMeal_breakfast==false&&@restaurant.goodForMeal_brunch==false%>
+<%= "unknown" if @restaurant.goodForMeal_dessert==nil&&@restaurant.goodForMeal_latenight==nil&&@restaurant.goodForMeal_lunch==nil&&@restaurant.goodForMeal_dinner==nil&&@restaurant.goodForMeal_breakfast==nil&&@restaurant.goodForMeal_brunch==nil%>
+<br /> <%= "has TV" if @restaurant.hasTV %><%= "do not have TV" if @restaurant.hasTV==false %>
 <br />noise level: <%= @restaurant.noiseLevel %>
-<br />open 24 hours: <%= @restaurant.open24Hours %>
-<br />outdoor seating: <%= @restaurant.outdoorSeating %>
+<br /><%= "open 24 hours" if @restaurant.open24Hours %><%= "do not open 24 hours" if @restaurant.open24Hours==false %>
+<br /> <%= "has outdoor seating" if @restaurant.outdoorSeating %><%= "no outdoor seating" if @restaurant.outdoorSeating==false %>
 <br />restaurant's attire: <%= @restaurant.restaurantsAttire %>
-<br />restaurant's delivery: <%= @restaurant.restaurantsDelivery %>
-<br />restaurant's good for groups: <%= @restaurant.restaurantsGoodForGroups %>
+<br /><%= "restaurant offers delivery" if @restaurant.restaurantsDelivery %><%= "restaurant do not offer delivery" if @restaurant.restaurantsDelivery==false %>
+<br /> <%= "restaurant's good for groups" if @restaurant.restaurantsGoodForGroups %><%= "restaurant's not good for groups" if @restaurant.restaurantsGoodForGroups==false %>
 <br />restaurant's price range (1-4): <%= @restaurant.restaurantsPriceRange2 %>
-<br />restaurant's reservations: <%= @restaurant.restaurantsReservations %>
-<br />restaurant's table service: <%= @restaurant.restaurantsTableService %>
-<br />restaurant's takeout: <%= @restaurant.restaurantsTakeOut %>
-<br />wheel chair accessible: <%= @restaurant.wheelchairAccessible %>
+<br /> <%= "restaurant offers reservations" if @restaurant.restaurantsReservations %><%= "restaurant do not offer reservations" if @restaurant.restaurantsReservations==false %>
+<br /> <%= "restaurant offers table service" if @restaurant.restaurantsTableService %><%= "restaurant do not offer table service" if @restaurant.restaurantsTableService==false %>
+<br /><%= "restaurant offers takeout" if @restaurant.restaurantsTakeOut %><%= "restaurant do not offer takeout" if @restaurant.restaurantsTakeOut==false %>
+<br /><%= "wheel chair accessible" if @restaurant.wheelchairAccessible %><%= "wheel chair inaccessible" if @restaurant.wheelchairAccessible==false %>
 <br />WiFi: <%= @restaurant.wiFi %>
 <br />categories: <%= @restaurant.categories %>
 <br /><table class="table-striped" width="100%" border="1"><caption><h3>opening hours</h3></caption><tr><th>Day</th><th>From</th><th>to</th></tr><tr><td>Monday</td><td><%= @restaurant.hours_Monday.hour if @restaurant.hours_Monday!=nil%>:<%= @restaurant.hours_Monday.min if @restaurant.hours_Monday!=nil%></td> <td> <%= @restaurant.hours_Monday_end.hour if @restaurant.hours_Monday_end!=nil%>:<%= @restaurant.hours_Monday_end.min if @restaurant.hours_Monday_end!=nil%></td></tr>
