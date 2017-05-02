@@ -4,15 +4,15 @@
     <section class="restaurant_info">
 <h1><%= @restaurant.name %></h1>
 
-<br />neighborhood: <%= @restaurant.neighborhood %>
+<br /><%= "neighborhood: " if @restaurant.neighborhood!='' %><%= @restaurant.neighborhood %>
 <br />address: <%= @restaurant.address %>
 <br />postal code: <%= @restaurant.postal_code %>
 <br />latitude: <%= @restaurant.latitude %>
 <br />longitude: <%= @restaurant.longitude %>
 <br />stars: <%= @restaurant.stars %>
 <br />review count: <%= @restaurant.review_count %>
-<br />is <%= @restaurant.is_open %> now
-<br />alcohol: <%= @restaurant.alcohol %>
+<br /><%= "is" if @restaurant.is_open!='' %> <%= @restaurant.is_open %><%= " now" if @restaurant.is_open!='' %>
+<br /><%= "alcohol: " if @restaurant.alcohol!='' %><%= @restaurant.alcohol %>
 <br />ambience: <%= "romantic, " if  @restaurant.ambience_romantic %>
 <%= "intimate, " if  @restaurant.ambience_intimate %>
 <%= "classy, " if  @restaurant.ambience_classy %>
@@ -47,19 +47,19 @@
 <%= "none" if @restaurant.goodForMeal_dessert==false&&@restaurant.goodForMeal_latenight==false&&@restaurant.goodForMeal_lunch==false&&@restaurant.goodForMeal_dinner==false&&@restaurant.goodForMeal_breakfast==false&&@restaurant.goodForMeal_brunch==false%>
 <%= "unknown" if @restaurant.goodForMeal_dessert==nil&&@restaurant.goodForMeal_latenight==nil&&@restaurant.goodForMeal_lunch==nil&&@restaurant.goodForMeal_dinner==nil&&@restaurant.goodForMeal_breakfast==nil&&@restaurant.goodForMeal_brunch==nil%>
 <br /> <%= "has TV" if @restaurant.hasTV %><%= "do not have TV" if @restaurant.hasTV==false %>
-<br />noise level: <%= @restaurant.noiseLevel %>
+<br /><%= "noise level: " if @restaurant.noiseLevel!='' %><%= @restaurant.noiseLevel %>
 <br /><%= "open 24 hours" if @restaurant.open24Hours %><%= "do not open 24 hours" if @restaurant.open24Hours==false %>
 <br /> <%= "has outdoor seating" if @restaurant.outdoorSeating %><%= "no outdoor seating" if @restaurant.outdoorSeating==false %>
-<br />restaurant's attire: <%= @restaurant.restaurantsAttire %>
+<br /> <%= "restaurant's attire: " if @restaurant.restaurantsAttire!='' %><%= @restaurant.restaurantsAttire %>
 <br /><%= "restaurant offers delivery" if @restaurant.restaurantsDelivery %><%= "restaurant do not offer delivery" if @restaurant.restaurantsDelivery==false %>
 <br /> <%= "restaurant's good for groups" if @restaurant.restaurantsGoodForGroups %><%= "restaurant's not good for groups" if @restaurant.restaurantsGoodForGroups==false %>
-<br />restaurant's price range (1-4): <%= @restaurant.restaurantsPriceRange2 %>
+<br /><%= "restaurant's price range (1-4): " if @restaurant.restaurantsPriceRange2!=nil %> <%= @restaurant.restaurantsPriceRange2 %>
 <br /> <%= "restaurant offers reservations" if @restaurant.restaurantsReservations %><%= "restaurant do not offer reservations" if @restaurant.restaurantsReservations==false %>
 <br /> <%= "restaurant offers table service" if @restaurant.restaurantsTableService %><%= "restaurant do not offer table service" if @restaurant.restaurantsTableService==false %>
 <br /><%= "restaurant offers takeout" if @restaurant.restaurantsTakeOut %><%= "restaurant do not offer takeout" if @restaurant.restaurantsTakeOut==false %>
 <br /><%= "wheel chair accessible" if @restaurant.wheelchairAccessible %><%= "wheel chair inaccessible" if @restaurant.wheelchairAccessible==false %>
-<br />WiFi: <%= @restaurant.wiFi %>
-<br />categories: <%= @restaurant.categories %>
+<br /><%="WiFi: " if  @restaurant.wiFi!='' %> <%= @restaurant.wiFi %>
+<br /><%="categories: " if  @restaurant.categories!='' %><%= @restaurant.categories %>
 <br /><table class="table-striped" width="100%" border="1"><caption><h3>opening hours</h3></caption><tr><th>Day</th><th>From</th><th>to</th></tr><tr><td>Monday</td><td><%= @restaurant.hours_Monday.hour if @restaurant.hours_Monday!=nil%>:<%= @restaurant.hours_Monday.min if @restaurant.hours_Monday!=nil%></td> <td> <%= @restaurant.hours_Monday_end.hour if @restaurant.hours_Monday_end!=nil%>:<%= @restaurant.hours_Monday_end.min if @restaurant.hours_Monday_end!=nil%></td></tr>
 <tr><td>Tuesday</td><td> <%= @restaurant.hours_Tuesday.hour if @restaurant.hours_Tuesday!=nil%>:<%= @restaurant.hours_Tuesday.min if @restaurant.hours_Tuesday!=nil%></td><td> <%= @restaurant.hours_Tuesday_end.hour if @restaurant.hours_Tuesday_end!=nil%>:<%= @restaurant.hours_Tuesday_end.min if @restaurant.hours_Tuesday_end!=nil%></td></tr>
 <tr><td>Wednesday</td><td> <%= @restaurant.hours_Wednesday.hour if @restaurant.hours_Wednesday!=nil%>:<%= @restaurant.hours_Wednesday.min if @restaurant.hours_Wednesday!=nil%></td><td> <%= @restaurant.hours_Wednesday_end.hour if @restaurant.hours_Wednesday_end!=nil%>:<%= @restaurant.hours_Wednesday_end.min if @restaurant.hours_Wednesday_end!=nil%></td></tr>
