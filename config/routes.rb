@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   resources :restaurants
   resources :reviews, only: [:create, :destroy]
   i=1;
-  while (i<7552)
+  while (i<7558)
    get "opinion_target_#{i}" => "static_pages#opinion_target_#{i}"
    i=i+1
   end
