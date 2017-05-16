@@ -18,13 +18,13 @@ Rails.application.routes.draw do
   resources :restaurants
   resources :reviews, only: [:create, :destroy]
   i=1;
-  while (i<7558)
+  while (i<9755)
    get "opinion_target_#{i}" => "static_pages#opinion_target_#{i}"
    i=i+1
   end
 
   j=1;
-  while (j<9)
+  while (j<11)
    get "/ot_list_OTE_YRRNorthYork_YRRCmodelBROWNW2V_1415combined_descending_#{j}.html" => "static_pages#ot_list_OTE_YRRNorthYork_YRRCmodelBROWNW2V_1415combined_descending_#{j}"
    j=j+1
   end

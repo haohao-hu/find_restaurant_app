@@ -44,6 +44,12 @@ class StaticPagesController < ApplicationController
   def ot_list_OTE_YRRNorthYork_YRRCmodelBROWNW2V_1415combined_descending_8
    
  end
+   def ot_list_OTE_YRRNorthYork_YRRCmodelBROWNW2V_1415combined_descending_9
+   
+ end
+   def ot_list_OTE_YRRNorthYork_YRRCmodelBROWNW2V_1415combined_descending_10
+   
+ end
 def opinion_target_1
 end
 def opinion_target_2
